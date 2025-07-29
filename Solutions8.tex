@@ -55,6 +55,7 @@ of order \(2\). Furthermore let \(\mathscr{H}\) be the \(R:=\Z[v,v^{-1}]\)-algeb
             \varepsilon(T_w)= (-1)^{l(w)}, \ w \in W
         \end{align*}
     \end{enumerate}
+    \label{exercise1}
 \end{exercise}
 
 \begin{proof}
@@ -102,9 +103,29 @@ of order \(2\). Furthermore let \(\mathscr{H}\) be the \(R:=\Z[v,v^{-1}]\)-algeb
         \begin{align*}
             &= (v^2 1 + (v^2-1)A_s)\varphi(T_{sw}) \\
             &\overset{\ref{first}}{=} A_s^2 \varphi(T_{sw}) \\
-            &= \varphi()
+                        &= \varphi(T_s)^2\varphi(T_{sw}) \\
+            &=\varphi(T_s) \varphi(T_{s(sw)}) = \varphi(T_s) \varphi(T_w)
         \end{align*}
-
+    \item again we can definie an \(R\)-linear map via
+    \begin{align*}
+        \varepsilon: \mathscr{H}  \rightarrow R, T_w \mapsto (-1)^{l(w)}
+    \end{align*}
+    Again we need to proove that
+    \begin{align*}
+        \varepsilon(T_s T_w)= \varepsilon(T_s) \varepsilon(T_w), s \in S, w \in W
+    \end{align*}
+    Again if the length goes up \(l(sw)=l(w)+1\), then we have
+        \begin{align*}
+            \varepsilon(T_{sw})= (-1)^{l(sw)} = (-1)^{l(s)} (-1)^{l(w)} = \varepsilon(T_s)\varepsilon(T_w)
+        \end{align*}
+    This leaves us with the case of the length going down: \(l(sw)=l(w)-1\) giving:
+    \begin{align*}
+        \varepsilon(T_s T_w) &= v^2 \varepsilon(T_{sw}) + (v^2-1) \varepsilon(T_w) \\
+        &=v^2 (-1)^{l(w)-1} + (v^2-1) (-1)^{l(w)} \\
+        &=(-1)^{l(w)-1}(v^2-v^2+1) \\
+        &=(-1)(-1)^{l(w)} \\
+        &= \varepsilon(T_s) \varepsilon(T_w)
+    \end{align*}
     \end{enumerate}
 \end{proof}
 

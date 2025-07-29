@@ -1,0 +1,87 @@
+\documentclass[]{article}
+
+
+\usepackage{imports}
+\usepackage{enumitem}
+\usepackage{xr}
+\externaldocument{Solutions8}
+
+\title{Solutions 9}
+\author{Nickel Paulsen}
+
+\begin{document}
+\maketitle
+
+\begin{definition*}[associative algebra]
+   Let \(R\) be a commutative ring, then \(A\) is called an \underline{associative algebra over \(R\)} or \underline{\(R\)-algebra} if \(A\) is an \(R\)-modul and a ring 
+   such that scalars in \(R\) commute:
+   \begin{align*}
+     r ( a b) = (r a) b = a(rb) \ , \quad r \in R, a,b \in A
+   \end{align*}
+\end{definition*}
+
+In the following let \(W\) be the Weyl group of a \(BN\)-pair \(B,N \subset G\) with generating set \(S \subset W\) which only contains elements
+of order \(2\). Furthermore let \(\mathscr{H}\) be the \(R:=\Z[v,v^{-1}]\)-algebra with basis \(W=\{T_w | w \in W\}\) and multiplication given by
+\begin{align*}
+    T_s T_w = \begin{cases}
+        T_{sw}, & l(sw)=l(w)+1 \\
+        v^2 T_{sw} + (v^2-1) T_w, & l(sw)= l(w)-1 \\
+    \end{cases}
+\end{align*}
+
+\setcounter{exercise}{4}
+\begin{exercise}
+There is a unique algebra isomorphism \(\delta: \mathscr{H} \rightarrow \mathscr{H}\) such that
+\begin{align*}
+    \delta(T_s) = - v^2  T_s^{-1}, \ s \in S
+\end{align*}
+We have \(\delta^2 = id_\mathscr{H}\) and \(\delta(T_w)=(-1)^{l(w)}v^2 T_{w^{-1}}^{-1}, \ w \in W\).
+\end{exercise}
+
+\begin{proof}
+    We want to check to conditions \ref{first} \& \ref{(M)} in Exercise \ref{exercise1} of sheet 8 
+    for \(\mathscr{A}:=\mathscr{H}\) and \( A_s:=\delta(T_s)\):
+    \begin{enumerate}[label=\arabic*)]
+        \item \(A_s^2 = v^2 1_\mathscr{A} + (v^2-1) A_s\)
+        \label{first}
+        \item \(A_s A_t A_s \ldots = A_t A_s A_t \dots \), where both terms have \(m_{st}:=ord(st)\) factors and \(s \neq t\)
+        \label{(M)}
+    \end{enumerate}
+    Lets set \(u:= v^2\) and write \(r:=r 1_{\mathscr{H}}\). 
+
+    \(1)\) On one side we have
+    \begin{align*}
+        A_s^2 &= (u T^{-1}_s)^2 \\
+        &=(u(u^{-1}T_s - (1-u^{-1})))^2 \\
+        &=(T_s - (u-1))^2 \\
+        &=T_s^2 = 2(u-1)T_s + (u-1)^2 \\
+        &=u + (u-1) T_s - 2(u-1) T_s + (u-1)^2 \\
+        &= u + (u-1)^2 - (1-u) T_s \\
+    \end{align*}
+    and on the other one
+    \begin{align*}
+        u +(u-1)A_s &= u - u(u-1)T_s^{-1} \\
+        &=u-u(u-1)(u^{-1}T_s - (1-u^{-1})) \\
+        &=u - (u-1)T_s +(u-1)^2 \\
+    \end{align*}
+    which prooves the equation. 
+
+    \(2)\) Now let \(s,t \in S\) be distinct with order \(m:=ord(st)< \infty\), 
+    then we know that \(sts \dots = tst \dots \) for terms with \(m\) factors. Thus we get
+    \begin{align*}
+        A_s A_t A_s \dots &= (-uT_s^{-1})(-uT_t^{-1})(-uT_s^{-1}) \dots \\
+        &=(-u)^m T_s^{-1} T_t^{-1} T_s^{-1} \dots \\
+        &=(-u)^m T_{sts \dots}^{-1}  \\
+        &=(-u)^m T_{tst \dots}^{-1} = A_t A_s A_t \dots  \\
+    \end{align*}
+    where the first an the last term have both \(m\) factors.
+
+    Now be sheet 8 Ex1.1 we have for \(w=s_1 \dots s_k \in W, s_i \in S\) reduced expr. 
+    \begin{align*}
+        A_w &= A_{s_1} \dots A_{s_k} \\
+        &=(-u)^{l(w)}T_{s_k \dots s_1}^{-1} \\
+        &=(-u)^{l(w)}T_{w^{-1}}^{-1}
+    \end{align*}
+\end{proof}
+
+\end{document}

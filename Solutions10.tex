@@ -4,7 +4,7 @@
 \usepackage{imports}
 \usepackage{enumitem}
 
-\title{Solutions 8}
+\title{Solutions 10}
 \author{Nickel Paulsen}
 
 \begin{document}
@@ -54,6 +54,61 @@ of order \(2\). Furthermore let \(\mathscr{H}\) be the \(R:=\Z[v,v^{-1}]\)-algeb
 \end{exercise}
 
 \begin{proof}
+    \underline{claim:} \(\varphi\) is a morphism of rings.
+    We start with showing that \(\varphi\) is compatible with addition:
+    \begin{enumerate}
+        \item Let \(h = \sum_{w \in W}^{} a_w \widetilde{T}_w, \ h' = \sum_{w \in W}^{} b_w \widetilde{T}_w \in \mathscr{H}\), then we have
+        \begin{align*}
+            \varphi(h+h')= \varphi\left(\sum_{w \in W}^{} (a_w+b_w) \widetilde{T}_w\right) = \sum_{w \in W}^{} (-1)^{l(w)}(\overline{a_w}+\overline{b_w}) \widetilde{T}_w = \varphi(h)+ \varphi(h')
+        \end{align*}
+        \item Now we want to show compatibility with multiplication. Not first that we have
+        \begin{align*}
+            \varphi(a h ) = \overline{a} \varphi(h), \ a \in R, h \in \mathscr{H}
+        \end{align*}
+        since for an arbitrary element \(h = \sum_{w \in W}^{} a_w \widetilde{T}_w\in \mathscr{H}\) we have
+        \begin{align*}
+            \varphi(a h ) = \varphi\left(\sum_{w \in W}^{} a a_w \widetilde{T}_w\right) = \sum_{w \in W}^{} (-1)^{l(w)}\overline{a} \ \overline{a_w} \widetilde{T}_w = \overline{a} \varphi(h)
+        \end{align*}
+        \item Now as a first approximation we show:
+        \begin{align*}
+        \varphi(\widetilde{T}_s \widetilde{T}_w) = \varphi(\widetilde{T}_s) \varphi(\widetilde{T}_w), \ \forall s \in S, w \in W
+        \end{align*}
+        \begin{align*}
+            \varphi(\widetilde{T}_s) \varphi(\widetilde{T}_w) &= - \widetilde{T}_s \cdot (-1)^{l(w)} \widetilde{T}_w \\
+            & = (-1)^{l(w)+1} \widetilde{T}_s \widetilde{T}_w
+        \end{align*}
+        Now if the length of \(sw\) goes up, i.e. \(l(sw)=l(w)+1\), then
+        \begin{align*}
+            \varphi(\widetilde{T}_s \widetilde{T}_w) = \varphi(\widetilde{T}_{sw}) = (-1)^{l(w)+1} \widetilde{T}_{sw} = (-1)^{l(w)+1} \widetilde{T}_s \widetilde{T}_w
+        \end{align*}
+        And also if the lenth goes down, we have
+        \begin{align*}
+            \varphi(\widetilde{T}_s \widetilde{T}_w) &= \varphi(\widetilde{T}_{sw}+(v-v^{-1}))\widetilde{T}_w \\
+            &=(-1)^{l(w)-1} \widetilde{T}_{sw} + (-1)^{l(w)}(v^{-1}-v)\widetilde{T}_w \\
+            &=(-1)^{l(w)+1} (\widetilde{T}_{sw} + (v- v^{-1}) \widetilde{T}_w) \\
+            &=(-1)^{l(w)+1} \widetilde{T}_s \widetilde{T}_w
+        \end{align*}
+        which shows the above equation. 
+        \item Now we want to show that
+        \begin{align*}
+            \varphi(\widetilde{T}_s h) = \varphi(\widetilde{T}_s) \varphi(h), \ s \in S, h \in \mathscr{H}
+        \end{align*}
+        Let \(h = \sum_{w \in W}^{}a_w \widetilde{T}_w \in \mathscr{H}\) be an arbitrary element, then we have 
+        \begin{align*}
+            \varphi(\widetilde{T}_s h) &= \varphi\left(\widetilde{T}_s \sum_{w}^{} a_w \widetilde{T}_w\right) \\
+            &=\varphi\left( \sum_{w}^{} a_w \widetilde{T}_s\widetilde{T}_w\right) \\
+            &\overset{1.}{=} \sum_{w}^{} \varphi(a_w \widetilde{T}_s\widetilde{T}_w) \\
+            &\overset{2.}{=} \sum_{w}^{} \overline{a}_w \varphi(\widetilde{T}_s\widetilde{T}_w) \\
+            &\overset{3.}{=} \sum_{w}^{} \overline{a}_w \varphi(\widetilde{T}_s)\varphi(\widetilde{T}_w) \\
+            &=\varphi(\widetilde{T}_s) \sum_{w}^{} \overline{a}_w \varphi(\widetilde{T}_w) \\
+            &= \varphi(\widetilde{T}_s) \varphi(h)
+        \end{align*}
+        \item Now we want to show that
+        \begin{align*}
+            \varphi(\widetilde{T}_y h) = \varphi(\widetilde{T}_y) \varphi(h), \ y \in W, h \in \mathscr{H}
+        \end{align*}
+        Let \(s_1 \dots s_n = y \in W, s_i \in S\) be a reduced form, then we have \(\widetilde{T}_{s_1}\dots \widetilde{T}_{s_n} = \widetilde{T}_y\) and thus
+    \end{enumerate}
 \end{proof}
 
 \end{document}
