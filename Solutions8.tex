@@ -1,0 +1,111 @@
+\documentclass[]{article}
+
+
+\usepackage{imports}
+\usepackage{enumitem}
+
+\title{Solutions 8}
+\author{Nickel Paulsen}
+
+\begin{document}
+\maketitle
+
+
+
+\begin{definition*}[associative algebra]
+   Let \(R\) be a commutative ring, then \(A\) is called an \underline{associative algebra over \(R\)} or \underline{\(R\)-algebra} if \(A\) is an \(R\)-modul and a ring 
+   such that scalars in \(R\) commute:
+   \begin{align*}
+     r ( a b) = (r a) b = a(rb) \ , \quad r \in R, a,b \in A
+   \end{align*}
+\end{definition*}
+
+In the following let \(W\) be the Weyl group of a \(BN\)-pair \(B,N \subset G\) with generating set \(S \subset W\) which only contains elements
+of order \(2\). Furthermore let \(\mathscr{H}\) be the \(R:=\Z[v,v^{-1}]\)-algebra with basis \(W=\{T_w | w \in W\}\) and multiplication given by
+\begin{align*}
+    T_s T_w = \begin{cases}
+        T_{sw}, & l(sw)=l(w)+1 \\
+        v^2 T_{sw} + (v^2-1) T_w, & l(sw)= l(w)-1 \\
+    \end{cases}
+\end{align*}
+
+\begin{exercise}
+    Let \(\mathscr{A}\) be an \(R\)-algebra and \(\{A_s | s \in S\}\) such that
+    \begin{enumerate}[label=\arabic*)]
+        \item \(A_s^2 = v^2 1_\mathscr{A} + (v^2-1) A_s\)
+        \label{first}
+        \item \(A_s A_t A_s \dots = A_t A_s A_t \dots\), where both terms have \(m_{st}:=ord(st)\) factors and \(s \neq t\)
+        \label{(M)}
+    \end{enumerate}
+    Show the following:
+    \begin{enumerate}
+        \item For every \(w \in W\) there is a well-defined element \(A_w \in \mathscr{A}\) such that 
+            \begin{align*}
+                A_w = A_{s_1} \dots A_{s_m}
+            \end{align*}
+        for any reduced expression \(w = s_1 \dots s_n, \ s_i \in S\). 
+        \item There is a unique algebra homomorphism \(\varphi: \mathscr{H} \rightarrow \mathscr{A}\) such that \(\varphi(T_s)= A_s, s \in S\). 
+        In particular, we have
+        \begin{align*}
+            \varphi(T_w) = A_w, \ w \in W
+        \end{align*}
+        \item There is a unique algebra homomorphism \(\varepsilon: \mathscr{H} \rightarrow R\) such that \(\varepsilon(T_s)= -1, s \in S\). 
+        In particular, we have
+        \begin{align*}
+            \varepsilon(T_w)= (-1)^{l(w)}, \ w \in W
+        \end{align*}
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}
+        \item Since the multiplication on \(\mathscr{A}\) is associative and we have a neutral element \(\mathcal{M}:=(\mathscr{A},\cdot, 1)\) is a monoid.
+        We can understand the family \((A_s)_{s \in S}\) as a map \(a: S \rightarrow \mathcal{M}\). Now to use Matsumoto's theorem
+        we need that for any two \(s,t \in S\) distinct we have
+        \begin{align*}
+            A_s A_t A_s \dots = A_t A_s A_t \dots , 
+        \end{align*}
+        where both terms have \(m_{st}:=ord(st)\) factors. But this is given by \ref{(M)} thus we directly get a map
+        \begin{align}
+            \hat{A}: W \rightarrow \mathscr{A}, \hat{A}(w)=A_{s_1}\dots A_{s_m} 
+            \label{Matsu}
+        \end{align}
+        for any reduced expression \(w = s_1 \dots s_n, \ s_i \in S\). 
+        \item We have the basis \(\{T_w | w \in W\}\) of \(\mathscr{H}\) thus we can define an \(R\)-linear map
+        \begin{align*}
+            \varphi : \mathscr{H} \rightarrow \mathscr{A}, \ T_w \mapsto A_w
+        \end{align*}
+        If we can show that
+        \begin{align*}
+            \varphi(T_s T_w)=\varphi(T_s)\varphi(T_w) \tag{\(*\)}
+            \label{*}
+        \end{align*}
+        for \(s \in S, w \in W\) then we showed that \(\varphi\) is indeed an algebra homomorphism. 
+        Like we have learned in the lecture we make an induction over the length of \(w\): \\
+        \underline{\(l(w)=0\):} Then we have \(w=1\) and \(T_1 = 1 \in \mathscr{H}\). By \eqref{Matsu} we know that \(A_1 = 1 \in \mathscr{A}\). 
+        Thus \eqref{*} is clearly fulfilled. \\
+        \underline{\(l(w)>0\):} \\
+        Suppose the length goes up \(l(sw)=l(w)+1\), then we have
+        \begin{align*}
+            \varphi(T_s T_w) = \varphi(T_{sw})= A_{sw} \overset{\eqref{Matsu}}{=} A_s A_w = \varphi(T_s) \varphi(T_w)
+        \end{align*}
+        Suppose the length goes down \(l(sw)=l(w)-1\), then we have \(T_s T_w = v^2 T_{sw} + (v^2 -1) T_w\) and since \(\varphi\)
+        is an \(R\)-linear
+        \begin{align*}
+            \varphi(T_s T_w) = v^2 \varphi(T_{sw}) + (v^2 -1) \varphi(T_w)
+        \end{align*}
+        Now since for \(s(sw)\) the length goes up, i.e. \(l(s(sw))= l(w)= l(sw)+1\) we know from above that
+        \begin{align*}
+            \varphi(T_w)=\varphi(T_{s(sw)})=\varphi(T_s) \varphi(T_{sw})
+        \end{align*}
+        Thus we can continue the penultimate equation with
+        \begin{align*}
+            &= (v^2 1 + (v^2-1)A_s)\varphi(T_{sw}) \\
+            &\overset{\ref{first}}{=} A_s^2 \varphi(T_{sw}) \\
+            &= \varphi()
+        \end{align*}
+
+    \end{enumerate}
+\end{proof}
+
+\end{document}

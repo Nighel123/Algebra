@@ -1,0 +1,59 @@
+\documentclass[]{article}
+
+
+\usepackage{imports}
+\usepackage{enumitem}
+
+\title{Solutions 8}
+\author{Nickel Paulsen}
+
+\begin{document}
+\maketitle
+
+
+
+\begin{definition*}[associative algebra]
+   Let \(R\) be a commutative ring, then \(A\) is called an \underline{associative algebra over \(R\)} or \underline{\(R\)-algebra} if \(A\) is an \(R\)-modul and a ring 
+   such that scalars in \(R\) commute:
+   \begin{align*}
+     r ( a b) = (r a) b = a(rb) \ , \quad r \in R, a,b \in A
+   \end{align*}
+\end{definition*}
+
+In the following let \(W\) be the Weyl group of a \(BN\)-pair \(B,N \subset G\) with generating set \(S \subset W\) which only contains elements
+of order \(2\). Furthermore let \(\mathscr{H}\) be the \(R:=\Z[v,v^{-1}]\)-algebra with basis \(\{\widetilde{T_w} | w \in W\}\) and multiplication given by
+\begin{align*}
+    \widetilde{T}_{s} \widetilde{T}_w =
+    \begin{cases}
+        \widetilde{T}_{s w}& \text{if} \quad l(s w) = l(w) +1 \\
+        \widetilde{T}_{s w}+(v-v^{-1})\widetilde{T}_w & \text{if} \quad l(s w)= l(w)-1 \\
+    \end{cases}
+\end{align*}
+
+\begin{exercise}
+    The map \(\varphi : \mathscr{H} \rightarrow \mathscr{H}\) given by
+    \begin{align*}
+        \varphi\left(\sum_{w \in W}^{}a_w \widetilde{T}_w\right) = \sum_{w \in W}^{}(-1)^{l(w)}\overline{a}_w\widetilde{T}_w
+    \end{align*}
+    is a ring homomorphism of order 2, i.e. \(\varphi^2 = id\). Furthermore consider the algebra isomorphism
+    \begin{align*}
+        \delta: \mathscr{H} \rightarrow \mathscr{H}, \ T_w \mapsto (-u)^{l(w)} T_w^{-1}
+    \end{align*}
+    from sheet 9 exercise 5, then the compositions 
+    \begin{align*}
+        \varphi \circ \delta = \delta \circ \varphi
+    \end{align*}
+    are equal. Furthermore the map 
+    \begin{align*}
+        \overline{\phantom{x}}:\mathscr{H} &\rightarrow \mathscr{H}, \ \overline{\sum_{w \in W}^{}a_w \widetilde{T}_w} := \sum_{w \in W}^{} \overline{a_w} \ \widetilde{T}_w^{-1} 
+    \end{align*}
+    from Lemma 4.1 is given by the composition
+    \begin{align*}
+        \overline{\phantom{x}} = \delta \circ \varphi
+    \end{align*}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\end{document}
